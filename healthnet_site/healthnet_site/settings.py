@@ -25,7 +25,7 @@ SECRET_KEY = 'wb=^*=&wvyy!dgdplmu3u#=&po6u8n6-b_&5+kv6*j!fo0=z=c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kmf5285.pythonanywhere.com']
 
 # Application definition
 
@@ -145,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/kmf5285/HealthNet/HealthNet/healthnet_site/healthnet/static/healthnet'
 # for downloading the attahment
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'documents')
