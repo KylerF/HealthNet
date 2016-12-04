@@ -12,7 +12,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/messages">Messages</a></li>
+                <li><a href="/messages">Messages {% if unread_count %}({{ unread_count }}) {% endif %}</a></li>
                 {% if user_type == '' %}
                 <li><a href="/admin" target="_blank">Admin Console</a></li>
                 {% endif %}
