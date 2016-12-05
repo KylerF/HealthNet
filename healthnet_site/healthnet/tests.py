@@ -126,11 +126,11 @@ class PatientTestCase(TestCase):
         test_patient = Patient(user_id=test_patient_user_id, first_name="test", last_name="patient",
                                contact_number=1231231234, emergency_contact_number=1231231234,
                                preferred_hospital=test_hospital, insurance_id=1234, insurance_company="test",
-                               address="test", city="test", state="NY", zipcode=12345, country="US", age=1,
+                               address="test", city="test", state="NY", zipcode=12345, age=1,
                                weight=20, height=20)
         test_patient.save()
 
-        test_patient.update_profile_info(new_contact_number=5184223456, new_emergency_contact_number=6781234567)
+        test_patient.update_profile_info(new_contact_number=5184223456, new_emergency_contact_number=6781234567, new_address="123 Test Rd", new_city="Test", new_state="NY", new_zipcode=14623, new_email="test@test.com")
 
         self.assertEqual(test_patient.user_id, test_patient_user_id)
         self.assertEqual(test_patient.first_name, "test")
@@ -232,7 +232,7 @@ class AppointmentTestCase(TestCase):
 
         new_date = datetime.datetime.now()
 
-        test_appointment.update_appointment(new_doctor_id=2, new_patient_id=2, new_appointment_date=new_date)
+        test_appointment.update_appointment(new_doctor_id=2, new_patient_id=2, new_start=new_date, new_end=new_date + datetime.timedelta(hours=1))
 
         self.assertEqual(test_appointment.doctor_id, 2)
         self.assertEqual(test_appointment.patient_id, 2)
