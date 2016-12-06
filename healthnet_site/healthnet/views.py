@@ -184,7 +184,7 @@ def create_appointment(request):
                        or Appointment.objects.filter(patient_id=patient_id, end__gt=appt_start, end__lt=appt_end).exists() \
                        or Appointment.objects.filter(patient_id=patient_id, start=appt_start, end=appt_end).exists()
 
-        invalid_date = (appt_start <= datetime.datetime.now()) or (appt_end < appt_start)
+        invalid_date = (appt_start+datetime.timedelta(hours=5) < datetime.datetime.now()) or (appt_end < appt_start)
 
         # If there is a time conflict, abort saving the appointment
         if doc_conflict:
